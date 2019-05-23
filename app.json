@@ -1,0 +1,36 @@
+{
+  "expo": {
+    "name": "accountabuddy",
+    "slug": "accountabuddy",
+    "privacy": "public",
+    "sdkVersion": "32.0.0",
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "splash": {
+      "image": "./assets/images/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+
+      "bundleIdentifier": "accountabuddy",
+      "config": {
+        "googleSignIn": {
+          "reservedClientId": "com.googleusercontent.apps.717521954357-fm49jp7aseqrcq7dbtepreqe17lvomu2"
+        }
+      }
+    }
+  }
+}
