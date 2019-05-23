@@ -1,12 +1,12 @@
 import React from 'react';
-import {Text, Button, View} from 'react-native';
-import Yay from '../components/Yay';
+import { Text, Button, View } from 'react-native';
+import Yay from "./Yay";
 
 export default class ButtonComponent extends React.Component {
   constructor() {
     super();
     this.state = {
-      clicked: false
+      clicked: false,
     };
   }
 
@@ -17,14 +17,16 @@ export default class ButtonComponent extends React.Component {
   render() {
     if (this.state.clicked) {
       return (
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-          <Yay/>
+        <View
+          style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}
+        >
+          <Yay />
           <Text>Good Job!</Text>
           <Button
-          onPress={this.toggle}
-          title="Learn More"
-          color="#841584"
-          accessibilityLabel="Learn more about this purple button"
+            onPress={this.toggle}
+            title="Learn More"
+            color="#841584"
+            accessibilityLabel="Learn more about this purple button"
           />
         </View>
       );
@@ -33,10 +35,10 @@ export default class ButtonComponent extends React.Component {
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <Text>Did you workout today?</Text>
         <Button
-        onPress={this.toggle}
-        title="Learn More"
-        color="#841584"
-        accessibilityLabel="Learn more about this purple button"
+          onPress={this.toggle}
+          title="Learn More"
+          color="#841584"
+          accessibilityLabel="Learn more about this purple button"
         />
       </View>
     );

@@ -1,6 +1,5 @@
 import React from 'react';
-import ButtonComponent from '../components/ButtonComponent'
-
+import ButtonComponent from '../components/ButtonComponent';
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -8,8 +7,6 @@ export default class HomeScreen extends React.Component {
   };
 
   render() {
-    return (
-      <ButtonComponent active={true}/>
-    );
+    return <ButtonComponent active={true} />;
   }
 }
