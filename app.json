@@ -4,6 +4,9 @@
     "slug": "accountabuddy",
     "privacy": "public",
     "sdkVersion": "32.0.0",
+    "facebookScheme": "fb457353711677668",
+    "facebookAppId": "457353711677668",
+    "facebookDisplayName": "accountabuddy",
     "platforms": [
       "ios",
       "android"
