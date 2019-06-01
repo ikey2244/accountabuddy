@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, StyleSheet, AsyncStorage, Alert } from 'react-native';
+import { Button, StyleSheet, AsyncStorage } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
 import { Facebook } from 'expo';
 import firebase from 'firebase';
@@ -14,28 +14,24 @@ export default class Login extends React.Component {
   }
 
   logIn = async () => {
-    const {
-      type,
-      token,
-      expires,
-    } = await Facebook.logInWithReadPermissionsAsync('457353711677668', {
-      behavior: 'web',
-      permissions: ['public_profile'],
-    });
+    const { type, token } = await Facebook.logInWithReadPermissionsAsync(
+      '457353711677668',
+      {
+        permissions: ['public_profile'],
+      }
+    );
     if (type === 'success') {
       AsyncStorage.setItem('token', token);
       const credential = firebase.auth.FacebookAuthProvider.credential(token);
       firebase
         .auth()
         .signInWithCredential(credential)
+        .then(() => {
+          AsyncStorage.setItem('token', token);
+        })
         .catch(error => {
           console.log(error);
         });
-    }
-    console.log(expires);
-    if (expires === true) {
-      Alert.alert('token is expired');
-      AsyncStorage.deleteItem('token');
     }
   };
 

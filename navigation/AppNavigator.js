@@ -4,20 +4,20 @@ import {
   createAppContainer,
 } from 'react-navigation';
 
-import Home from '../screens/HomeScreen';
+import MainTabNavigator from './MainTabNavigator';
 import Login from '../screens/Login';
 import logOut from '../screens/LogOut';
 import AuthLoadingScreen from '../screens/AuthLoadingScreen';
 
-const AppStack = createStackNavigator({ Home });
+const AppStack = createStackNavigator({ MainTabNavigator });
 const AuthStack = createStackNavigator({ Login, logOut });
 
 export default createAppContainer(
   createSwitchNavigator(
     {
       AuthLoading: AuthLoadingScreen,
-      Auth: AuthStack,
       App: AppStack,
+      Auth: AuthStack,
     },
     {
       initialRouteName: 'AuthLoading',
