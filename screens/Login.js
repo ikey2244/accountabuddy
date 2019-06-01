@@ -1,5 +1,6 @@
 import React from 'react';
-import { Button, StyleSheet, View } from 'react-native';
+import { Button, StyleSheet, AsyncStorage, Alert } from 'react-native';
+import { SafeAreaView } from 'react-navigation';
 import { Facebook } from 'expo';
 import firebase from 'firebase';
 
@@ -7,19 +8,22 @@ export default class Login extends React.Component {
   componentDidMount() {
     firebase.auth().onAuthStateChanged(user => {
       if (user !== null) {
-        this.props.navigation.navigate('Home');
+        this.props.navigation.navigate('LogOut');
       }
     });
   }
 
   logIn = async () => {
-    const { type, token } = await Facebook.logInWithReadPermissionsAsync(
-      '457353711677668',
-      {
-        permissions: ['public_profile'],
-      }
-    );
+    const {
+      type,
+      token,
+      expires,
+    } = await Facebook.logInWithReadPermissionsAsync('457353711677668', {
+      behavior: 'web',
+      permissions: ['public_profile'],
+    });
     if (type === 'success') {
+      AsyncStorage.setItem('token', token);
       const credential = firebase.auth.FacebookAuthProvider.credential(token);
       firebase
         .auth()
@@ -28,18 +32,23 @@ export default class Login extends React.Component {
           console.log(error);
         });
     }
+    console.log(expires);
+    if (expires === true) {
+      Alert.alert('token is expired');
+      AsyncStorage.deleteItem('token');
+    }
   };
 
   render() {
     return (
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <Button
           onPress={this.logIn}
           title="Login"
           color="#841584"
           accessibilityLabel="Learn more about this purple button"
         />
-      </View>
+      </SafeAreaView>
     );
   }
 }
@@ -47,6 +56,7 @@ export default class Login extends React.Component {
 const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
+    alignItems: 'center',
     flex: 1,
     backgroundColor: '#fff',
   },

@@ -5,7 +5,6 @@ import {
   StatusBar,
   View,
   StyleSheet,
-  Text,
 } from 'react-native';
 
 export default class AuthLoadingScreen extends React.Component {
