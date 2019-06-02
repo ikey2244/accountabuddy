@@ -7,21 +7,14 @@ export default class HomeScreen extends React.Component {
     header: null,
   };
 
-  componentDidMount() {
-    if (firebase.auth().currentUser === null) {
-      this.props.navigation.navigate('Login');
-    }
-  }
-
   logOut = () => {
-    const user = firebase.auth().currentUser;
-
-    user
-      .delete()
-      .then(() => {
-        this.props.navigation.navigate('Login');
+    firebase
+      .auth()
+      .signOut()
+      .then(function() {
+        console.log('Success!');
       })
-      .catch(error => {
+      .catch(function(error) {
         console.log(error);
       });
   };
