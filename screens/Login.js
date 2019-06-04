@@ -1,6 +1,5 @@
 import React from 'react';
 import { Button, StyleSheet, AsyncStorage } from 'react-native';
-import { SafeAreaView } from 'react-navigation';
 import { Facebook } from 'expo';
 import firebase from 'firebase';
 
@@ -17,6 +16,7 @@ export default class Login extends React.Component {
     const { type, token } = await Facebook.logInWithReadPermissionsAsync(
       '457353711677668',
       {
+        behavior: 'web',
         permissions: ['public_profile'],
       }
     );
@@ -37,14 +37,12 @@ export default class Login extends React.Component {
 
   render() {
     return (
-      <SafeAreaView style={styles.container}>
-        <Button
-          onPress={this.logIn}
-          title="Login"
-          color="#841584"
-          accessibilityLabel="Learn more about this purple button"
-        />
-      </SafeAreaView>
+      <Button
+        onPress={this.logIn}
+        title="Login"
+        color="#841584"
+        accessibilityLabel="Learn more about this purple button"
+      />
     );
   }
 }
