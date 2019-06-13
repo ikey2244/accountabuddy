@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, Button, View } from 'react-native';
-import Yay from "./Yay";
+import Yay from './Yay';
 
 export default class ButtonComponent extends React.Component {
   constructor() {
@@ -17,9 +17,7 @@ export default class ButtonComponent extends React.Component {
   render() {
     if (this.state.clicked) {
       return (
-        <View
-          style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}
-        >
+        <View>
           <Yay />
           <Text>Good Job!</Text>
           <Button
@@ -32,7 +30,7 @@ export default class ButtonComponent extends React.Component {
       );
     }
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <View>
         <Text>Did you workout today?</Text>
         <Button
           onPress={this.toggle}
