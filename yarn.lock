@@ -6960,6 +6960,11 @@ react-native-confetti@^0.1.0:
   resolved "https://registry.yarnpkg.com/react-native-confetti/-/react-native-confetti-0.1.0.tgz#9ec93c07f845de5ebeaed700043fd5218792b6f1"
   integrity sha512-+cXJvnPXKc0i/eTQcuzcjrlfIxmn/xFw4UyuVKQOWNK6BfWABvO6Ms6Zp6ivF1E8Vxt2vJkzJlNyoBvMh9FxKA==
 
+react-native-countdown-circle@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/react-native-countdown-circle/-/react-native-countdown-circle-3.0.0.tgz#000e739ac970df847afc60e3dec733260ff37cff"
+  integrity sha512-z4J3EChIftrbMuLZvLQ3UvMstppJ3wjAAsCvQDEv/XMFw0kGdOVAVrX+D0RP0Y+gOERaVTLhC49ax683EOFIag==
+
 react-native-dotenv@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/react-native-dotenv/-/react-native-dotenv-0.2.0.tgz#311551cb6a35a3dcfede648bded55c0e3ece579d"
@@ -7005,6 +7010,11 @@ react-native-platform-touchable@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/react-native-platform-touchable/-/react-native-platform-touchable-1.1.1.tgz#fde4acc65eea585d28b164d0c3716a42129a68e4"
   integrity sha1-/eSsxl7qWF0osWTQw3FqQhKaaOQ=
+
+react-native-really-awesome-button@^1.4.2:
+  version "1.4.2"
+  resolved "https://registry.yarnpkg.com/react-native-really-awesome-button/-/react-native-really-awesome-button-1.4.2.tgz#db25835f4eb3abe8ac04491db6a509777785c8c8"
+  integrity sha512-di2oPh0PnRGBLcCQ25v3OSplG1g9yFCd31ZvMQe6yLaMyq9yUb9o/Ot85Kj9tegHx1bmVda1zEuFHZLvYBBRFA==
 
 react-native-reanimated@1.0.0-alpha.11:
   version "1.0.0-alpha.11"
