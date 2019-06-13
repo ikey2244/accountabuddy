@@ -1,11 +1,26 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { Calendar } from 'react-native-calendars';
+import { Modal, StyleSheet, Text, View } from 'react-native';
+// import { Calendar } from 'react-native-calendars';
+// import ButtonComponent from '../components/ButtonComponent';
+import AwesomeButtonRick from 'react-native-really-awesome-button/src/themes/rick';
+import CountdownCircle from 'react-native-countdown-circle';
+import Yay from '../components/Yay';
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
     header: null,
   };
+
+  state = {
+    modalVisible: false,
+  };
+
+  setModalVisible(visible) {
+    this.setState({ modalVisible: visible });
+    setTimeout(() => {
+      this.setState({ modalVisible: false });
+    }, 5000);
+  }
 
   render() {
     const currentDate = new Date().toLocaleDateString('en-US', {
@@ -17,7 +32,42 @@ export default class HomeScreen extends React.Component {
     return (
       <View styles={styles.container}>
         <Text style={styles.headline}>{currentDate}</Text>
-        <Calendar
+        <AwesomeButtonRick
+          onPress={() => {
+            this.setModalVisible(true);
+          }}
+          type="primary"
+          stretch
+        >
+          Yeah!
+        </AwesomeButtonRick>
+
+        <Modal
+          animationType="slide"
+          transparent={false}
+          visible={this.state.modalVisible}
+        >
+          <View
+            style={{
+              flex: 1,
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}
+          >
+            <View>
+              <CountdownCircle
+                seconds={5}
+                radius={30}
+                borderWidth={8}
+                bgColor="#fff"
+              />
+              <Yay />
+              <Text>Yay you did it!</Text>
+            </View>
+          </View>
+        </Modal>
+        {/* <Calendar
           // Specify style for calendar container element. Default = {}
           // Specify theme properties to override specific styles for calendar parts. Default = {}
           theme={{
@@ -40,7 +90,7 @@ export default class HomeScreen extends React.Component {
             textMonthFontSize: 16,
             textDayHeaderFontSize: 16,
           }}
-        />
+        /> */}
       </View>
     );
   }
@@ -48,15 +98,14 @@ export default class HomeScreen extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    justifyContent: 'space-between',
-    alignItems: 'center',
     flex: 1,
-    backgroundColor: '#fff',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
   },
   headline: {
     fontWeight: 'bold',
     fontSize: 18,
-    marginTop: 0,
+    marginTop: 50,
     textAlign: 'center',
   },
 });
