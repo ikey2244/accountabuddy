@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Button, View, StyleSheet } from 'react-native';
 import firebase from 'firebase';
+import AwesomeButtonBlue from 'react-native-really-awesome-button/src/themes/blue';
 
 export default class LogOut extends Component {
   logOut = () => {
@@ -18,7 +19,7 @@ export default class LogOut extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Button onPress={this.logOut} title="Log Out" color="#841584" />
+        <AwesomeButtonBlue onPress={this.logOut}>Logout</AwesomeButtonBlue>
       </View>
     );
   }

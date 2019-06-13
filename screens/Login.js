@@ -1,7 +1,8 @@
 import React from 'react';
-import { Button, StyleSheet, AsyncStorage } from 'react-native';
+import { View, StyleSheet, AsyncStorage } from 'react-native';
 import { Facebook } from 'expo';
 import firebase from 'firebase';
+import AwesomeButtonBlue from 'react-native-really-awesome-button/src/themes/blue';
 
 export default class Login extends React.Component {
   componentDidMount() {
@@ -37,12 +38,11 @@ export default class Login extends React.Component {
 
   render() {
     return (
-      <Button
-        onPress={this.logIn}
-        title="Login"
-        color="#841584"
-        accessibilityLabel="Learn more about this purple button"
-      />
+      <View style={styles.container}>
+        <AwesomeButtonBlue stretch onPress={this.logIn}>
+          Login
+        </AwesomeButtonBlue>
+      </View>
     );
   }
 }
@@ -53,5 +53,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flex: 1,
     backgroundColor: '#fff',
+    padding: '15%',
   },
 });
