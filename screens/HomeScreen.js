@@ -1,6 +1,6 @@
 import React from 'react';
-import { Modal, StyleSheet, Text, View } from 'react-native';
-// import { Calendar } from 'react-native-calendars';
+import { Modal, StyleSheet, Text, View, Button } from 'react-native';
+import { Calendar } from 'react-native-calendars';
 // import ButtonComponent from '../components/ButtonComponent';
 import AwesomeButtonRick from 'react-native-really-awesome-button/src/themes/rick';
 import CountdownCircle from 'react-native-countdown-circle';
@@ -31,7 +31,12 @@ export default class HomeScreen extends React.Component {
     });
     return (
       <View styles={styles.container}>
+        <Button
+          title="Go to Items"
+          onPress={() => this.props.navigation.navigate('Items')}
+        />
         <Text style={styles.headline}>{currentDate}</Text>
+        <Text style={styles.headline}>Did you workout Today?</Text>
         <AwesomeButtonRick
           onPress={() => {
             this.setModalVisible(true);
@@ -67,9 +72,7 @@ export default class HomeScreen extends React.Component {
             </View>
           </View>
         </Modal>
-        {/* <Calendar
-          // Specify style for calendar container element. Default = {}
-          // Specify theme properties to override specific styles for calendar parts. Default = {}
+        <Calendar
           theme={{
             backgroundColor: '#ffffff',
             calendarBackground: '#ffffff',
@@ -90,7 +93,12 @@ export default class HomeScreen extends React.Component {
             textMonthFontSize: 16,
             textDayHeaderFontSize: 16,
           }}
-        /> */}
+          dayComponent={({ date, state }) => (
+            <View>
+              <Text>{date.day}</Text>
+            </View>
+          )}
+        />
       </View>
     );
   }

@@ -8,8 +8,9 @@ import MainTabNavigator from './MainTabNavigator';
 import Login from '../screens/Login';
 import logOut from '../screens/LogOut';
 import AuthLoadingScreen from '../screens/AuthLoadingScreen';
+import Items from '../screens/Items';
 
-const AppStack = createStackNavigator({ MainTabNavigator });
+const AppStack = createStackNavigator({ MainTabNavigator, Items });
 const AuthStack = createStackNavigator({ Login, logOut });
 
 export default createAppContainer(
