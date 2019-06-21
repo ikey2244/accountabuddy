@@ -5,6 +5,7 @@ import { Calendar } from 'react-native-calendars';
 import AwesomeButtonRick from 'react-native-really-awesome-button/src/themes/rick';
 import CountdownCircle from 'react-native-countdown-circle';
 import Yay from '../components/Yay';
+import AddItemForm from '../components/AddItemForm';
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -31,6 +32,7 @@ export default class HomeScreen extends React.Component {
     });
     return (
       <View styles={styles.container}>
+        <AddItemForm />
         <Button
           title="Go to Items"
           onPress={() => this.props.navigation.navigate('Items')}
